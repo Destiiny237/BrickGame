@@ -143,3 +143,5 @@ latex
 *.info
 *.out
 coverage_html
+.vscode/c_cpp_properties.json
+.vscode/settings.json

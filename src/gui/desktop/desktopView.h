@@ -8,16 +8,16 @@
 
 namespace s21
 {
-    class SnakeView : public QWidget, public IObserver
+    class DesktopView : public QWidget, public IObserver
     {
     public:
-        SnakeView(QWidget *parent);
-        SnakeView();
+        DesktopView(QWidget *parent);
+        DesktopView();
 
-        void render() override;
+        void render();
 
     private:
-        virtual void paintEvent(QPaintEvent *event) override;
+        virtual void paintEvent(QPaintEvent *event);
 
         void updateMap();
         void setText(QString text, int x, int y);

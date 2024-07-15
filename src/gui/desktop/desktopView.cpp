@@ -1,21 +1,21 @@
 #include "desktopView.h"
 
-s21::SnakeView::SnakeView(QWidget *parent) : QWidget(parent) {}
+s21::DesktopView::DesktopView(QWidget *parent) : QWidget(parent) {}
 
-s21::SnakeView::SnakeView() : QWidget(nullptr) {}
+s21::DesktopView::DesktopView() : QWidget(nullptr) {}
 
-void s21::SnakeView::render()
+void s21::DesktopView::render()
 {
     update();
 }
 
-void s21::SnakeView::paintEvent(QPaintEvent *event)
+void s21::DesktopView::paintEvent(QPaintEvent *event)
 {
     updateMap();
     QWidget::paintEvent(event);
 }
 
-void s21::SnakeView::updateMap()
+void s21::DesktopView::updateMap()
 {
     int **field = SnakeModel::getGameInfo_t()->field;
 
@@ -56,7 +56,7 @@ void s21::SnakeView::updateMap()
     addStats();
 }
 
-void s21::SnakeView::addStats()
+void s21::DesktopView::addStats()
 {
     int score = SnakeModel::getGameInfo_t()->score;
     QString scoreText = "Score: " + QString::number(score);
@@ -71,7 +71,7 @@ void s21::SnakeView::addStats()
     setText(levelText, 550, 200);
 }
 
-void s21::SnakeView::setText(QString text, int x, int y){
+void s21::DesktopView::setText(QString text, int x, int y){
     QPainter painter(this);
     int textX = x;
     int textY = y;

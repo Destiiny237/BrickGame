@@ -8,7 +8,7 @@
 void startSnakeDesktop()
 {
     s21::SnakeModel *model = new s21::SnakeModel();
-    s21::SnakeView *view = new s21::SnakeView();
+    s21::DesktopView *view = new s21::DesktopView();
 
     model->gameInit();
     // qDebug() << "Field address after gameInit: " << model->getGameInfo_t()->field;
@@ -29,46 +29,41 @@ void startSnakeConsole()
     model->gameInit();
     model->startGameLoop();
 
-    s21::SnakeModel::getGameInfo_t()->field();
-
-    if (winTet)
-        frontend(game, winTet);
+    // s21::SnakeModel::getGameInfo_t()->field();
 
     view->render();
 }
 
-void startTetrisDesktop()
-{
-    s21::SnakeView *view = new s21::SnakeView();
-    TetGame_t *game = initGame();
-    while (game->gameStatus != Terminate)
-    {
-        int ch = getch();
-        userAction(game, ch);
-        if (game->gameStatus != Pause)
-        {
-            updateCurrentState(game);
-        }
-        usleep(2000);
+// void startTetrisDesktop()
+// {
+//     s21::DesktopView *view = new s21::DesktopView();
+//     TetGame_t *game = initGame();
+//     while (game->gameStatus != Terminate)
+//     {
+//         int ch = getch();
+//         userAction(game, ch);
+//         if (game->gameStatus != Pause)
+//         {
+//             updateCurrentState(game);
+//         }
+//         usleep(2000);
 
-        // if (winTet) frontend(game, winTet);
-        view->updateMap(); // передать информацию о поле сюда и отрисовать
-    }
+//         // if (winTet) frontend(game, winTet);
+//         view->updateMap(); // передать информацию о поле сюда и отрисовать
+//     }
 
-    freeGame(game);
+//     freeGame(game);
 
-    if (winTet)
-    {
-        freeWindows(winTet);
-        endwin();
-    }
-
-    return 0;
-}
+//     if (winTet)
+//     {
+//         freeWindows(winTet);
+//         endwin();
+//     }
+// }
 
 int main(int argc, char *argv[])
 {
-    if (false)
+    if (true)
     {
         QApplication app(argc, argv);
         startSnakeDesktop();

@@ -3,24 +3,29 @@
 
 #include "../GameView.h"
 #include "../brick_game/snake/headers/model.h"
-extern "C" {
-    #include "../gui/console/consoleView.h"
+extern "C"
+{
+#include "../gui/console/consoleView.h"
 }
 
-class SnakeConsoleAdapter : public GameView {
+class SnakeConsoleAdapter : public GameView
+{
 private:
-    s21::SnakeModel& snakeModel;
+    s21::SnakeModel &snakeModel;
 
 public:
-    SnakeConsoleAdapter(s21::SnakeModel& model) : snakeModel(model) {
+    SnakeConsoleAdapter(s21::SnakeModel &model) : snakeModel(model)
+    {
         // console_view_init();
     }
 
-    void render() override {
-        frontend(game, winTet);
+    void render() override
+    {
+        // frontend(game, winTet);
     }
 
-    void update() override {
+    void update() override
+    {
         snakeModel.gameLoop();
     }
 

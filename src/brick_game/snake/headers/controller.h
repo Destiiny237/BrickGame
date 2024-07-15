@@ -20,7 +20,7 @@ namespace s21
         Q_OBJECT
     private:
         SnakeModel *model;          /**< Указатель на модель игры. */
-        SnakeView *view;       /**< Указатель на представление игры. */
+        DesktopView *view;       /**< Указатель на представление игры. */
         QTimer timer;          /**< Таймер для обновления игрового процесса. */
 
     public:
@@ -29,7 +29,7 @@ namespace s21
          * @param view Указатель на представление игры.
          * @param model Указатель на модель игры.
          */
-        Controller(SnakeView *view, SnakeModel *model);
+        Controller(DesktopView *view, SnakeModel *model);
 
         /**
          * @brief Деструктор класса Controller.

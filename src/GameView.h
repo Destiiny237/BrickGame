@@ -1,7 +1,8 @@
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 
-class GameView {
+class GameView
+{
 public:
     virtual void render() = 0;
     virtual void update() = 0;

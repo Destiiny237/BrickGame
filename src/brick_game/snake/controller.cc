@@ -1,6 +1,6 @@
 #include "headers/controller.h"
 
-s21::Controller::Controller(SnakeView *view, SnakeModel *model) : QObject(), view(view)
+s21::Controller::Controller(DesktopView *view, SnakeModel *model) : QObject(), view(view)
 {
     view->installEventFilter(this);
     this->model = model;
