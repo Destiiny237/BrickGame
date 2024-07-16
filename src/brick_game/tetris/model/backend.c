@@ -3,7 +3,7 @@
 
 #include "backend.h"
 
-#include "model.h"
+#include "tetris_model.h"
 
 /**
  * @file backend.c

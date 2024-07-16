@@ -3,7 +3,7 @@
 
 #include "bonus.h"
 
-#include "../model/model.h"
+#include "../model/tetris_model.h"
 
 /**
  * @brief Увеличивает уровень в зависимости от текущего счета игры.

@@ -1,8 +1,8 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "../../../view/view.h"
-#include "../model/model.h"
+#include "../../../gui/console/consoleView.h"
+#include "../model/tetris_model.h"
 
 /**
  * @brief Функция для просчета одной итерации игры.

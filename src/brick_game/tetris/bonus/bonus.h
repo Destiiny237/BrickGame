@@ -1,7 +1,7 @@
 #ifndef BONUS_H
 #define BONUS_H
 
-#include "../model/model.h"
+#include "../model/tetris_model.h"
 
 /**
  * @brief Увеличивает уровень игры в зависимости от текущего счета.

@@ -1,11 +1,11 @@
 #include <ncurses.h>  // Включение заголовочного файла ncurses
 
-#include "../view/view.h"  // Включение заголовочного файла представления
+#include "../gui/console/consoleView.h"  // Включение заголовочного файла представления
 #include "ncurses.h"  // Включение заголовочного файла ncurses
 #include "tetris/bonus/bonus.h"  // Включение заголовочного файла бонусов игры тетрис
-#include "tetris/controller/controller.h"  // Включение заголовочного файла контроллера игры тетрис
+#include "tetris/controller/tetris_controller.h"  // Включение заголовочного файла контроллера игры тетрис
 #include "tetris/model/backend.h"  // Включение заголовочного файла бэкэнда игры тетрис
-#include "tetris/model/model.h"  // Включение заголовочного файла модели игры тетрис
+#include "tetris/model/tetris_model.h"  // Включение заголовочного файла модели игры тетрис
 
 // Главная функция, управляющая игрой тетрис
 int tetrisGame(TetWindows_t *winTet);

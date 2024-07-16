@@ -1,7 +1,7 @@
 #ifndef BACKEND_H
 #define BACKEND_H
 
-#include "model.h"
+#include "tetris_model.h"
 
 /**
  * @brief Создать фигуру заполненную нулями

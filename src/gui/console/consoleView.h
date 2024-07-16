@@ -3,7 +3,7 @@
 
 #include <ncurses.h>  // Включение заголовочного файла ncurses
 
-#include "../brick_game/tetris/model/model.h"  // Включение заголовочного файла модели игры тетрис
+#include "../../brick_game/tetris/model/tetris_model.h"  // Включение заголовочного файла модели игры тетрис
 
 #define WHITE 1    // Константа для цвета белого
 #define GREEN 2    // Константа для цвета зеленого

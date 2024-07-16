@@ -12,6 +12,10 @@ SOURCES += \
     ../../brick_game/snake/controller.cc \
     ../../brick_game/snake/model.cc \
     ../../brick_game/snake/snake.cc \
+    ../../brick_game/tetris/model/tetris_model.c \
+    ../../brick_game/tetris/bonus/bonus.c \
+    ../../brick_game/tetris/controller/tetris_controller.c \
+    ../../brick_game/tetris/model/backend.c \
     desktopView.cpp \
     main.cpp \
     mainwindow.cpp
@@ -21,6 +25,10 @@ HEADERS += \
     ../../brick_game/snake/headers/IObserver.h \
     ../../brick_game/snake/headers/model.h \
     ../../brick_game/snake/headers/snake.h \
+    ../../brick_game/tetris/model/tetris_model.h \
+    ../../brick_game/tetris/bonus/bonus.h \
+    ../../brick_game/tetris/controller/tetris_controller.h \
+    ../../brick_game/tetris/model/backend.h \
     desktopView.h \
     mainwindow.h
 

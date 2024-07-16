@@ -1,49 +1,69 @@
 CC=g++
-CFLAGS=-std=c++17 -g -Wall -Wextra -Werror
+С=gcc
+CCFLAGS=-std=c++17 -g -Wall -Wextra -Werror
+CFLAGS=-std=c99
+
 GTEST_FLAGS=-lgtest -lgtest_main -pthread
-GCOV_FLAGS = -fprofile-arcs -ftest-coverage
+GCOV_FLAGS=-fprofile-arcs -ftest-coverage
 
-MODEL=brick_game/snake/model.cc
+# ---------
+# SnakeGame
+# ---------
+SNAKE_MODEL=brick_game/snake/model.cc
+SNAKE_CONTROLLER=brick_game/snake/controller.cc
 SNAKE=brick_game/snake/snake.cc
-CONTROLLER=brick_game/snake/controller.cc
+SNAKE_TESTS_FILES=brick_game/snake/Tests/testMain.cc
 
-TESTS_FILES=brick_game/snake/Tests/testMain.cc
+# ---------
+# TetrisGame
+# ---------
+BONUS = src/brick_game/tetris/bonus/*.c
+MODEL = src/brick_game/tetris/model/*.c
+CONTROLLER = src/brick_game/tetris/controller/*.c
+VIEW = src/view/*.c
 
 INSTALL_DIR=Game
 
-DESKTOP_SRCS=$(wildcard gui/desktop/*.cpp)
-
 all: install
 
-launch: $(INSTALL_DIR)/desktop
-	./$(INSTALL_DIR)/desktop
+# launch: $(INSTALL_DIR)/desktop/brickGame
+# 	./$(INSTALL_DIR)/desktop/brickGame
 
-$(INSTALL_DIR)/desktop:
-	mkdir -p $(INSTALL_DIR)
+$(INSTALL_DIR)/desktop/brickGame: $(INSTALL_DIR)
 	cd gui/desktop && qmake
 	cd gui/desktop && make
-	mv gui/desktop/desktop $(INSTALL_DIR)
+	mv gui/desktop/desktop $(INSTALL_DIR)/desktop/snakeobj
+# $(CC) $(MODEL) $(CONTROLLER) $(VIEW) $(BONUS) -o $(INSTALL_DIR)/desktop/tetrisobj -lncurses -std=c++17
+	echo
+	echo
+	echo
+	echo
+	echo
+	$(CC) -o brickGame $(INSTALL_DIR)/desktop/snakeobj $(INSTALL_DIR)/desktop/tetrisobj
 
-$(INSTALL_DIR)/high_score.txt:
+$(INSTALL_DIR)/desktop/high_score.txt: $(INSTALL_DIR)
 	touch $@
 
-install: uninstall $(INSTALL_DIR)/desktop $(INSTALL_DIR)/high_score.txt
+$(INSTALL_DIR):
+	mkdir -p $@
+
+install: uninstall $(INSTALL_DIR)/desktop/brickGame $(INSTALL_DIR)/desktop/high_score.txt
 
 uninstall: clean
-	rm -rf Game
+	rm -rf $(INSTALL_DIR)
 
 test: clean
-	$(CC) $(CFLAGS) $(TESTS_FILES) $(MODEL) $(SNAKE) -o test $(GTEST_FLAGS)
+	$(CC) $(CCFLAGS) $(SNAKE_TESTS_FILES) $(SNAKE_MODEL) $(SNAKE) -o test $(GTEST_FLAGS)
 	./test
 
 gcov_report: test 
-	$(CC) $(GCOV_FLAGS) $(TESTS_FILES) $(MODEL) $(SNAKE) -o coverage.out $(GTEST_FLAGS)
+	$(CC) $(GCOV_FLAGS) $(SNAKE_TESTS_FILES) $(SNAKE_MODEL) $(SNAKE) -o coverage.out $(GTEST_FLAGS)
 	./coverage.out
 	lcov --capture --directory . --output-file coverage.info
 	genhtml coverage.info --output-directory coverage_html
 
 dist: uninstall install
-	tar cvzf Snake.tgz Game/
+	tar cvzf Snake.tgz $(INSTALL_DIR)
 
 dvi:
 	doxygen Doxyfile

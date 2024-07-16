@@ -1,11 +1,11 @@
 #ifndef CONTROLLER_C
 #define CONTROLLER_C
 
-#include "controller.h"  // Включение заголовочного файла контроллера
+#include "tetris_controller.h"  // Включение заголовочного файла контроллера
 
 #include "../bonus/bonus.h"  // Включение заголовочного файла бонусов
 #include "../model/backend.h"  // Включение заголовочного файла бэкенда игры
-#include "../model/model.h"  // Включение заголовочного файла модели игры
+#include "../model/tetris_model.h"  // Включение заголовочного файла модели игры
 #include "ncurses.h"  // Включение заголовочного файла ncurses
 
 /**
